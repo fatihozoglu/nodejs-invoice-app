@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-invoice-app",
+  "version": "1.0.0",
+  "description": "This is a Nodejs/Expressjs backend application to provide REST API for my vue-invoice-app.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "author": "Fatih Özoğlu",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
