@@ -12,7 +12,7 @@ exports.getAllInvoices = async (req, res) => {
 exports.createInvoice = async (req, res) => {
   try {
     await Invoice.create(req.body);
-    res.end();
+    res.status(201).json({ status: "Created" });
   } catch (err) {
     throw new Error("Failed creating new invoice");
   }
