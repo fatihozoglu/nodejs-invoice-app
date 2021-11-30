@@ -16,7 +16,14 @@ const InvoiceSchema = new mongoose.Schema({
   invoiceDue: Date,
   paymentTerm: String,
   projectDesc: String,
-  projects: Array,
+  projects: [
+    {
+      name: String,
+      quantity: Number,
+      price: Number,
+      total: Number,
+    },
+  ],
   totalPrice: Number,
   status: String,
 });
