@@ -12,7 +12,7 @@ exports.getAllInvoices = async (req, res) => {
 exports.createInvoice = async (req, res) => {
   try {
     await Invoice.create(req.body);
-    res.status(201).json({ status: "Created" });
+    res.status(201).send("New Invoice Created");
   } catch (err) {
     throw new Error("Failed creating new invoice");
   }
@@ -45,8 +45,17 @@ exports.updateInvoice = async (req, res) => {
         },
       }
     );
-    res.send("updated");
+    res.status(200).send("Invoice Updated");
   } catch (err) {
     throw new Error("Failed creating new invoice");
+  }
+};
+
+exports.deleteInvoice = async (req, res) => {
+  try {
+    await Invoice.deleteOne({ id: req.body.id });
+    res.status(200).send("Invoice Deleted");
+  } catch (err) {
+    console.log(err.message);
   }
 };
