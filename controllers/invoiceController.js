@@ -56,6 +56,22 @@ exports.deleteInvoice = async (req, res) => {
     await Invoice.deleteOne({ id: req.body.id });
     res.status(200).send("Invoice Deleted");
   } catch (err) {
-    console.log(err.message);
+    throw new Error("Failed deleting the invoice");
+  }
+};
+
+exports.markAsPaid = async (req, res) => {
+  try {
+    await Invoice.updateOne(
+      { id: req.body.id },
+      {
+        $set: {
+          status: "Paid",
+        },
+      }
+    );
+    res.status(200).send("Invoice Marked As Paid");
+  } catch (err) {
+    throw new Error("Failed marking the invoice as Paid");
   }
 };
